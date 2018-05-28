@@ -1,0 +1,47 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      {{ form_title }}
+    </div>
+    <div class="panel-body">
+      <form [formGroup]="angForm" novalidate>
+        <div class="form-group">
+          <label class="col-md-4">Book Title</label>
+          <input type="text" class="form-control" formControlName="title" #title />
+        </div>
+        <div *ngIf="angForm.controls['title'].invalid && (angForm.controls['title'].dirty || angForm.controls['title'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['title'].errors.required">
+            Title is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Book Author</label>
+          <input type="text" class="form-control" formControlName="author" #author />
+        </div>
+        <div *ngIf="angForm.controls['author'].invalid && (angForm.controls['author'].dirty || angForm.controls['author'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['author'].errors.required">
+            Author is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Book Description</label>
+          <input type="text" class="form-control" formControlName="description" #description />
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Book Published Year</label>
+          <input type="text" class="form-control" formControlName="published_year" #published_year/>
+        </div>
+        <div *ngIf="angForm.controls['published_year'].invalid && (angForm.controls['published_year'].dirty || angForm.controls['published_year'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['published_year'].errors.required">
+            Published Year is required.
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4">Book Publisher</label>
+          <input type="text" class="form-control" formControlName="publisher" #publisher />
+        </div>
+        <div class="form-group">
+            <button (click)="addBook(title.value, author.value, description.value, published_year.value, publisher.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Add</button>
+          </div>
+      </form>
+    </div>
+  </div>
