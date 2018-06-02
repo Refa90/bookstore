@@ -14,6 +14,7 @@ import { BookService } from './book.service';
 import { ProductComponent } from './components/product/product.component';
 import { ShoppingComponent } from './components/shopping/shopping.component';
 import { StatisticsIndexComponent } from './components/statistics/index/statistics.component';
+import { HomeIndexComponent } from './components/home/index/home.index.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { StatisticsIndexComponent } from './components/statistics/index/statisti
     EditComponent,
     ProductComponent,
     ShoppingComponent,
-    StatisticsIndexComponent
+    StatisticsIndexComponent,
+    HomeIndexComponent
   ],
   imports: [
     BrowserModule,
