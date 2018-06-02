@@ -6,7 +6,8 @@ const express = require('express'),
   cors = require('cors'),
   mongoose = require('mongoose'),
   config = require('./config/DB'),
-  bookRoutes = require('./expressRoutes/bookRoutes');
+  bookRoutes = require('./expressRoutes/bookRoutes'),
+  restaurantRoutes = require('./expressRoutes/restaurantRoutes');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB).then(
@@ -24,6 +25,7 @@ app.use(cors());
 const port = process.env.PORT || 4000;
 
 app.use('/books', bookRoutes);
+app.use('/restaurants', restaurantRoutes);
 
 const server = app.listen(port, function() {
   console.log('Listening on port ' + port);
