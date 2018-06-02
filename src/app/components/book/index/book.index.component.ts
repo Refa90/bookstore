@@ -1,4 +1,4 @@
-import { BookService } from './../../book.service';
+import { BookService } from './../../../book.service';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
@@ -6,10 +6,10 @@ import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
+  templateUrl: './book.index.component.html',
+  styleUrls: ['./book.index.component.css']
 })
-export class IndexComponent implements OnInit {
+export class BookIndexComponent implements OnInit {
 
   books: any;
 

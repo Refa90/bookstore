@@ -5,19 +5,25 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { IndexComponent } from './components/index/index.component';
-import { CreateComponent } from './components/create/create.component';
-import { EditComponent } from './components/edit/edit.component';
+import { BookIndexComponent } from './components/book/index/book.index.component';
+import { CreateComponent } from './components/book/create/create.component';
+import { EditComponent } from './components/book/edit/edit.component';
 import { appRoutes } from './routerConfig';
 
 import { BookService } from './book.service';
+import { ProductComponent } from './components/product/product.component';
+import { ShoppingComponent } from './components/shopping/shopping.component';
+import { StatisticsIndexComponent } from './components/statistics/index/statistics.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IndexComponent,
+    BookIndexComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+    ProductComponent,
+    ShoppingComponent,
+    StatisticsIndexComponent
   ],
   imports: [
     BrowserModule,

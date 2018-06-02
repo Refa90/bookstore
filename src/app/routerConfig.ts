@@ -1,9 +1,9 @@
 // routerConfig.ts
 
 import { Routes } from '@angular/router';
-import { CreateComponent } from './components/create/create.component';
-import { EditComponent } from './components/edit/edit.component';
-import { IndexComponent } from './components/index/index.component';
+import { CreateComponent } from './components/book/create/create.component';
+import { EditComponent } from './components/book/edit/edit.component';
+import { BookIndexComponent } from './components/book/index/book.index.component';
 
 export const appRoutes: Routes = [
   { path: 'create',
@@ -14,6 +14,6 @@ export const appRoutes: Routes = [
     component: EditComponent
   },
   { path: 'index',
-    component: IndexComponent
+    component: BookIndexComponent
   }
 ];
