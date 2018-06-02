@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var Product = new Schema({
+var Restaurant = new Schema({
     id: String,
     name: String,
-    company: String,
+    location: String,
     description: String,
-    labels: String,
+    labels: Array,
+    starsAmount: int,
     picture: String,
   });
-  module.exports = mongoose.model('Product', Product);
+  module.exports = mongoose.model('Restaurant', Restaurant);
