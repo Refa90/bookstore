@@ -10,12 +10,12 @@ var Restaurant = require('../models/Restaurant');
 
 /* GET ALL BOOKS */
 restaurantRoutes.route('/').get(function (req, res) {
-  Restaurant.find(function (err, books){
+  Restaurant.find(function (err, rests){
     if(err){
       console.log(err);
     }
     else {
-      res.json(books);
+      res.json(rests);
     }
   });
 });

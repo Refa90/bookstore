@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RestaurantService } from '../../../services/restaurant.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-restaurant.index',
@@ -8,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 
 export class RestaurantIndexComponent implements OnInit {
 
-  constructor() { }
+  restaurants: any;
+
+  constructor(private http: HttpClient, private service: RestaurantService) {}
 
   ngOnInit() {
+    this.getRestaurants();
+  }
+
+  getRestaurants() {
+    this.service.getRestaurants().subscribe(res => {
+      this.restaurants = res;
+    });
+  }
+
+  deleteRestaurant(id) {
+    this.service.deleteRestaurant(id).subscribe(res => {
+      console.log('Deleted');
+    });
+    this.getRestaurants();
   }
 
 }
