@@ -7,8 +7,16 @@ const express = require('express'),
   mongoose = require('mongoose'),
   config = require('./config/DB'),
   bookRoutes = require('./expressRoutes/bookRoutes'),
+<<<<<<< HEAD
   recipeApi = require('./scripts/recipeApi');
   restaurantRoutes = require('./expressRoutes/restaurantRoutes');
+=======
+
+  recipeApi = require('./scripts/recipeApi');
+
+  restaurantRoutes = require('./expressRoutes/restaurantRoutes');
+
+>>>>>>> 28c5b157caab262723d151ac724f29381151c3d3
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB).then(
