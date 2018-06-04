@@ -5,10 +5,9 @@ function getRecipe(arg){
     if (err) { return console.log(err); }
     console.log(body);
     obj = JSON.parse(body);
-    console.log(body);
+    // TODO domething with the object, and return value
     });
 }
-
 exports.getRecipe = function(arg){
     getRecipe(arg);
 }
