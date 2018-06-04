@@ -10,6 +10,12 @@ export class HomeIndexComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.display();
   }
+
+  display(){
+
+  }
+
 
 }

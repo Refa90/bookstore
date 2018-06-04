@@ -6,7 +6,8 @@ const express = require('express'),
   cors = require('cors'),
   mongoose = require('mongoose'),
   config = require('./config/DB'),
-  bookRoutes = require('./expressRoutes/bookRoutes');
+  bookRoutes = require('./expressRoutes/bookRoutes'),
+  recipeApi = require('./scripts/recipeApi');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB).then(
@@ -28,3 +29,6 @@ app.use('/books', bookRoutes);
 const server = app.listen(port, function() {
   console.log('Listening on port ' + port);
 });
+
+
+recipeApi.getRecipe('chicken')
