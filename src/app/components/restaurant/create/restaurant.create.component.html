@@ -1,0 +1,52 @@
+
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    {{ form_title }}
+  </div>
+  <div class="panel-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Restaurant Name</label>
+        <input type="text" class="form-control" formControlName="name" #name />
+      </div>
+      <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['name'].errors.required">
+          Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Restaurant Location</label>
+        <input type="text" class="form-control" formControlName="location" #location />
+      </div>
+      <div *ngIf="angForm.controls['location'].invalid && (angForm.controls['location'].dirty || angForm.controls['location'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['location'].errors.required">
+          Location is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Restaurant Description</label>
+        <input type="text" class="form-control" formControlName="description" #description />
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Restaurant Labels</label>
+        <input type="text" class="form-control" formControlName="labels" #labels/>
+      </div>
+      <div *ngIf="angForm.controls['labels'].invalid && (angForm.controls['labels'].dirty || angForm.controls['labels'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['labels'].errors.required">
+          Published Year is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Restaurant Rating</label>
+        <input type="text" class="form-control" formControlName="rating" #rating />
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Restaurant Picture</label>
+        <input type="text" class="form-control" formControlName="picture" #picture />
+      </div>
+      <div class="form-group">
+          <button (click)="addRestaurant(name.value, location.value, description.value, labels.value, rating.value, picture.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Add</button>
+        </div>
+    </form>
+  </div>
+</div>

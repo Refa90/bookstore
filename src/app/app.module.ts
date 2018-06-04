@@ -16,7 +16,8 @@ import { ProductComponent } from './components/product/product.component';
 import { ShoppingComponent } from './components/shopping/shopping.component';
 import { StatisticsIndexComponent } from './components/statistics/index/statistics.component';
 import { HomeIndexComponent } from './components/home/index/home.index.component';
-import { RestaurantIndexComponent } from './components/restaurant/restaurant.index/restaurant.index.component';
+import { RestaurantIndexComponent } from './components/restaurant/index/restaurant.index.component';
+import { RestaurantCreateComponent } from './components/restaurant/create/restaurant.create.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { RestaurantIndexComponent } from './components/restaurant/restaurant.ind
     ShoppingComponent,
     StatisticsIndexComponent,
     HomeIndexComponent,
-    RestaurantIndexComponent
+    RestaurantIndexComponent,
+    RestaurantCreateComponent
   ],
   imports: [
     BrowserModule,

@@ -10,11 +10,12 @@ export class RestaurantService {
   result: any;
   constructor(private http: HttpClient) {}
 
-  addRestaurant(name, location, labels, rating, picture) {
+  addRestaurant(name, location, description, labels, rating, picture) {
     const uri = 'http://localhost:4000/restaurants/add';
     const obj = {
       name: name,
       location: location,
+      description: description,
       labels: labels,
       rating: rating,
       picture: picture
@@ -46,12 +47,13 @@ export class RestaurantService {
             });
   }
 
-  updateRestaurant(name, location, labels, rating, picture, id) {
+  updateRestaurant(name, location, description, labels, rating, picture, id) {
     const uri = 'http://localhost:4000/restaurants/update/' + id;
 
     const obj = {
         name: name,
         location: location,
+        description: description,
         labels: labels,
         rating: rating,
         picture: picture
