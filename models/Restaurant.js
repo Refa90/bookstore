@@ -7,7 +7,7 @@ var Restaurant = new Schema({
     location: String,
     description: String,
     labels: Array,
-    starsAmount: int,
+    starsAmount: Number,
     picture: String,
   });
   module.exports = mongoose.model('Restaurant', Restaurant);
