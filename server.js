@@ -7,11 +7,8 @@ const express = require('express'),
   mongoose = require('mongoose'),
   config = require('./config/DB'),
   bookRoutes = require('./expressRoutes/bookRoutes'),
-
-  recipeApi = require('./scripts/recipeApi');
-
+  recipeApi = require('./scripts/recipeApi'),
   restaurantRoutes = require('./expressRoutes/restaurantRoutes');
-
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB).then(

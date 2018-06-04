@@ -11,10 +11,13 @@ import { EditComponent } from './components/book/edit/edit.component';
 import { appRoutes } from './routerConfig';
 
 import { BookService } from './book.service';
+import { RestaurantService } from './services/restaurant.service';
 import { ProductComponent } from './components/product/product.component';
 import { ShoppingComponent } from './components/shopping/shopping.component';
 import { StatisticsIndexComponent } from './components/statistics/index/statistics.component';
 import { HomeIndexComponent } from './components/home/index/home.index.component';
+import { RestaurantIndexComponent } from './components/restaurant/index/restaurant.index.component';
+import { RestaurantCreateComponent } from './components/restaurant/create/restaurant.create.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { HomeIndexComponent } from './components/home/index/home.index.component
     ProductComponent,
     ShoppingComponent,
     StatisticsIndexComponent,
-    HomeIndexComponent
+    HomeIndexComponent,
+    RestaurantIndexComponent,
+    RestaurantCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +38,7 @@ import { HomeIndexComponent } from './components/home/index/home.index.component
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [BookService],
+  providers: [BookService, RestaurantService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
