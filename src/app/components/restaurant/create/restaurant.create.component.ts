@@ -28,8 +28,9 @@ export class RestaurantCreateComponent implements OnInit {
   }
 
   addRestaurant(name, location, description, labels, rating, picture) {
-    this.restervice.addRestaurant(name, location, description, labels, rating, picture);
-    this.router.navigate(['/restaurants/index']);
+    this.restervice.addRestaurant(name, location, description, labels, rating, picture).subscribe(res => {
+      this.router.navigate(['/restaurants/index']);
+    });
   }
   ngOnInit() {
   }

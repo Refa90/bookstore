@@ -7,6 +7,7 @@ import { BookIndexComponent } from './components/book/index/book.index.component
 import { HomeIndexComponent } from './components/home/index/home.index.component';
 import { RestaurantIndexComponent } from './components/restaurant/index/restaurant.index.component';
 import { RestaurantCreateComponent } from './components/restaurant/create/restaurant.create.component';
+import { RestaurantUpdateComponent } from './components/restaurant/update/restaurant.update.component';
 
 export const appRoutes: Routes = [
   { path: 'books/create',
@@ -31,8 +32,8 @@ export const appRoutes: Routes = [
      component: RestaurantCreateComponent
   },
   {
-    path: 'restaurants/update',
-     component: RestaurantIndexComponent
+    path: 'restaurants/edit/:id',
+     component: RestaurantUpdateComponent
   },
   {
     path: 'restaurants/delete',

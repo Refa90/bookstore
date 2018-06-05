@@ -20,11 +20,19 @@ export class RestaurantService {
       rating: rating,
       picture: picture
     };
-    this
-      .http
-      .post(uri, obj)
-      .subscribe(res =>
-          console.log('Done'));
+
+    // this
+    //   .http
+    //   .post(uri, obj)
+    //   .subscribe(res =>
+    //       console.log('Done'));
+
+      return this
+          .http
+          .post(uri, obj)
+          .map(res => {
+            return res;
+          });
   }
 
   getRestaurants() {
@@ -58,10 +66,18 @@ export class RestaurantService {
         rating: rating,
         picture: picture
     };
-    this
-      .http
-      .post(uri, obj)
-      .subscribe(res => console.log('Done'));
+
+    // this
+    //   .http
+    //   .post(uri, obj)
+    //   .subscribe(res => console.log('Done'));
+
+    return this
+            .http
+            .post(uri, obj)
+            .map(res => {
+              return res;
+            });
   }
 
   deleteRestaurant(id) {

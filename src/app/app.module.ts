@@ -12,12 +12,11 @@ import { appRoutes } from './routerConfig';
 
 import { BookService } from './book.service';
 import { RestaurantService } from './services/restaurant.service';
-import { ProductComponent } from './components/product/product.component';
-import { ShoppingComponent } from './components/shopping/shopping.component';
 import { StatisticsIndexComponent } from './components/statistics/index/statistics.component';
 import { HomeIndexComponent } from './components/home/index/home.index.component';
 import { RestaurantIndexComponent } from './components/restaurant/index/restaurant.index.component';
 import { RestaurantCreateComponent } from './components/restaurant/create/restaurant.create.component';
+import { RestaurantUpdateComponent } from './components/restaurant/update/restaurant.update.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +24,11 @@ import { RestaurantCreateComponent } from './components/restaurant/create/restau
     BookIndexComponent,
     CreateComponent,
     EditComponent,
-    ProductComponent,
-    ShoppingComponent,
     StatisticsIndexComponent,
     HomeIndexComponent,
     RestaurantIndexComponent,
-    RestaurantCreateComponent
+    RestaurantCreateComponent,
+    RestaurantUpdateComponent
   ],
   imports: [
     BrowserModule,

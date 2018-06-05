@@ -1,5 +1,3 @@
-// bookRoutes.js
-
 var express = require('express');
 var app = express();
 var restaurantRoutes = express.Router();
@@ -8,7 +6,7 @@ var restaurantRoutes = express.Router();
 var Restaurant = require('../models/Restaurant');
 
 
-/* GET ALL BOOKS */
+/* GET ALL RESTAURANTS */
 restaurantRoutes.route('/').get(function (req, res) {
   Restaurant.find(function (err, rests){
     if(err){
@@ -20,7 +18,7 @@ restaurantRoutes.route('/').get(function (req, res) {
   });
 });
 
-// /* GET SINGLE BOOK BY ID */
+// /* GET SINGLE RESTAURANT BY ID */
 restaurantRoutes.get('/:id', function(req, res, next) {
   Restaurant.findById(req.params.id, function (err, post) {
     if (err) return next(err);
@@ -28,7 +26,7 @@ restaurantRoutes.get('/:id', function(req, res, next) {
   });
 });
 
-/* SAVE BOOK */
+/* SAVE RESTAURANT */
 restaurantRoutes.route('/add').post(function (req, res) {
   var restaurant = new Restaurant(req.body);
   console.log(restaurant);
@@ -41,27 +39,28 @@ restaurantRoutes.route('/add').post(function (req, res) {
     });
 });
 
-/* UPDATE BOOK */
+/* UPDATE RESTAURANT */
 restaurantRoutes.route('/edit/:id').get(function (req, res) {
   var id = req.params.id;
-  Restaurant.findById(id, function (err, book){
-      res.json(book);
+  Restaurant.findById(id, function (err, restaurant){
+      res.json(restaurant);
   });
 });
 
 restaurantRoutes.route('/update/:id').post(function (req, res) {
-  Restaurant.findById(req.params.id, function(err, book) {
+  Restaurant.findById(req.params.id, function(err, restaurant) {
     if (!restaurant)
       return next(new Error('Could not load Document'));
     else {
-      restaurant.id = req.body.id;
+
       restaurant.name = req.body.name;
       restaurant.location = req.body.location;
+      restaurant.description = req.body.description;
       restaurant.labels = req.body.labels;
-      restaurant.starsAmount = req.body.starsAmount;
+      restaurant.rating = req.body.rating;
       restaurant.picture = req.body.picture;
 
-      restaurant.save().then(book => {
+      restaurant.save().then(restaurant => {
           res.json('Update complete');
       })
       .catch(err => {
@@ -71,9 +70,9 @@ restaurantRoutes.route('/update/:id').post(function (req, res) {
   });
 });
 
-/* DELETE BOOK */
+/* DELETE RESTAURANT */
 restaurantRoutes.route('/delete/:id').get(function (req, res) {
-  Restaurant.findByIdAndRemove({_id: req.params.id}, function(err, book){
+  Restaurant.findByIdAndRemove({_id: req.params.id}, function(err, restaurant){
         if(err) res.json(err);
         else res.json('Successfully removed');
     });
