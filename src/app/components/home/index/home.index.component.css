@@ -50,15 +50,16 @@ nav a:hover:not(.active) {
     color: white;
 }
 
-#a{
+#Statistics{
     float:left;
     width:50%;
 }
 
-#b{
+#Mangment{
     float:right;
     width:50%;
 }
+
 #c{
     margin: left 40%
 }
