@@ -18,6 +18,24 @@ restaurantRoutes.route('/').get(function (req, res) {
   });
 });
 
+restaurantRoutes.route('/search').get(function (req, res) {
+    url = req.query
+    query = []
+    if(url.name != null){
+      query.push({"name": url.name})
+    }
+    if(url.location != null){
+      query.push({"location": url.location})
+    }
+    if(url.label != null){
+      query.push({"label": url.label})
+    }
+    
+    Restaurant.find().or(query)
+    .then(rests => { res.json(rests); })
+    .catch(error => { console.log(error); })
+});
+
 // /* GET SINGLE RESTAURANT BY ID */
 restaurantRoutes.get('/:id', function(req, res, next) {
   Restaurant.findById(req.params.id, function (err, post) {
