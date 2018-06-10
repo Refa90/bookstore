@@ -36,6 +36,46 @@ restaurantRoutes.route('/search').get(function (req, res) {
     .catch(error => { console.log(error); })
 });
 
+restaurantRoutes.route('/stats').get(function (req, res) {
+  
+  groupObj = {}
+  projectObj = { total : '$total', _id : 0}
+
+
+  url = req.query
+  
+  if(url.name != null){
+    groupObj.push({"name": "$name"})
+    projectObj.push("name", "$_id.name")
+  }
+  if(url.location != null){
+    groupObj.push({"location": "$location"})
+    projectObj.push("location", "$_id.location")
+  }
+  if(url.label != null){
+    groupObj.push({"name": "$name"})
+    projectObj.push("name", "$_id.name")
+  }
+
+  // var agg = 
+  //   [
+  //     {$group: {_id : {book : '$book',address:'$addr'}, total:{$sum :1}}},
+  //     {$project : {book : '$_id.book', address : '$_id.address', total : '$total', _id : 0}}
+  //   ];
+
+  
+
+   var agg = 
+    [
+      {$group: {_id : groupObj, total:{$sum :1}}},
+      {$project : projectObj}
+    ];
+  
+  Restaurant.aggregate(query)
+  .then(rests => { res.json(rests); })
+  .catch(error => { console.log(error); })
+});
+
 // /* GET SINGLE RESTAURANT BY ID */
 restaurantRoutes.get('/:id', function(req, res, next) {
   Restaurant.findById(req.params.id, function (err, post) {
