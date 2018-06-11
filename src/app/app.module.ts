@@ -17,6 +17,10 @@ import { HomeIndexComponent } from './components/home/index/home.index.component
 import { RestaurantIndexComponent } from './components/restaurant/index/restaurant.index.component';
 import { RestaurantCreateComponent } from './components/restaurant/create/restaurant.create.component';
 import { RestaurantUpdateComponent } from './components/restaurant/update/restaurant.update.component';
+import { ChatComponent } from './components/chat/chat.component';
+import { SearchComponent } from './components/search/search.component';
+import { RecipeResultsComponent } from './components/recipe-results/recipe-results.component';
+import { RestaurantResultsComponent } from './components/restaurant-results/restaurant-results.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { RestaurantUpdateComponent } from './components/restaurant/update/restau
     HomeIndexComponent,
     RestaurantIndexComponent,
     RestaurantCreateComponent,
-    RestaurantUpdateComponent
+    RestaurantUpdateComponent,
+    ChatComponent,
+    SearchComponent,
+    RecipeResultsComponent,
+    RestaurantResultsComponent
   ],
   imports: [
     BrowserModule,
