@@ -41,37 +41,28 @@ restaurantRoutes.route('/stats').get(function (req, res) {
   groupObj = {}
   projectObj = { total : '$total', _id : 0}
 
-
-  url = req.query
+  valuesArr = req.url.split("?")[1].split(",")
   
-  if(url.name != null){
-    groupObj.push({"name": "$name"})
-    projectObj.push("name", "$_id.name")
+  if(valuesArr.includes("name")){
+    groupObj["name"] = "$name";
+    projectObj["name"] = "$_id.name";
   }
-  if(url.location != null){
-    groupObj.push({"location": "$location"})
-    projectObj.push("location", "$_id.location")
+  if(valuesArr.includes("location")){
+    groupObj["location"] = "$location";
+    projectObj["location"] = "$_id.location";
   }
-  if(url.label != null){
-    groupObj.push({"name": "$name"})
-    projectObj.push("name", "$_id.name")
+  if(valuesArr.includes("label")){
+    groupObj["label"] = "$label";
+    projectObj["label"] = "$_id.label";
   }
 
-  // var agg = 
-  //   [
-  //     {$group: {_id : {book : '$book',address:'$addr'}, total:{$sum :1}}},
-  //     {$project : {book : '$_id.book', address : '$_id.address', total : '$total', _id : 0}}
-  //   ];
-
-  
-
-   var agg = 
+  var agg = 
     [
       {$group: {_id : groupObj, total:{$sum :1}}},
       {$project : projectObj}
     ];
   
-  Restaurant.aggregate(query)
+  Restaurant.aggregate(agg)
   .then(rests => { res.json(rests); })
   .catch(error => { console.log(error); })
 });
