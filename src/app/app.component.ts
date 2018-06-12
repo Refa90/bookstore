@@ -49,27 +49,30 @@ export class AppComponent {
 
     //   });
   }
-  searchReastaurnat(searchModel){
-    console.log(searchModel);
-    this.service.searchRestaurants(searchModel.name,searchModel.location,searchModel.label).subscribe(res => {
-      console.log(res);
-      this.restaurants = res;
-    });
-  }
 
-    addPost(post) {
-      this.description = post.description;
-      this.name = post.name;
-  }
-  onFileSelected(event){
-    this.selectedImageFile=<File>event.target.files[0];
-    debugger;
+  addPost(post) {
+    this.description = post.description;
+    this.name = post.name;
 }
-onUpload(){
-  console.log('upload image clicked');
-  this.service.searchRestaurantsByImage(this.selectedImageFile).subscribe(res => {
-    console.log(res);
-    this.selectedImageFile = res;
-  });
-}
+
+//   searchReastaurnat(searchModel){
+//     console.log(searchModel);
+//     this.service.searchRestaurants(searchModel.name,searchModel.location,searchModel.label).subscribe(res => {
+//       console.log(res);
+//       this.restaurants = res;
+//     });
+//   }
+
+
+//   onFileSelected(event){
+//     this.selectedImageFile=<File>event.target.files[0];
+//     debugger;
+// }
+// onUpload(){
+//   console.log('upload image clicked');
+//   this.service.searchRestaurantsByImage(this.selectedImageFile).subscribe(res => {
+//     console.log(res);
+//     this.selectedImageFile = res;
+//   });
+// }
 }
