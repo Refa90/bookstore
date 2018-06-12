@@ -1,18 +1,18 @@
-<!-- <nav class="navbar navbar-default">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <ul class="nav navbar-nav">
       <li class="active">
-        <a routerLink="/books/create" routerLinkActive="active">
+        <!-- <a routerLink="/books/create" routerLinkActive="active">
           Add Books
-
-        </a>
+        </a> -->
       </li>
     </ul>
   </div>
 
 
 
-  <div *ngIf="!name; else forminfo">
+  <!-- <div *ngIf="!name; else forminfo"> -->
+      <div >
     <form [formGroup]="rForm" (ngSubmit)="searchReastaurnat(rForm.value)">
       <div class="form-container">
         <div class="row columns">
@@ -21,17 +21,14 @@
             <input type="text" formControlName="name">
           </label>
 
-          <!-- <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">{{ titleAlert }}</div> -->
+         <!-- <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">{{ titleAlert }}</div> --> 
 
           <label>Location
             <input type="text" formControlName="location">
-          </label>
-          <!-- <div class="alert" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">You must specify a description that's between 30 and 500 characters.</div>
-            <label for="validate">Minimum of 3 Characters</label>
-            <input type="checkbox" name="validate" formControlName="validate" value="1"> On -->
-          <!-- <label>Label
-                <textarea  formControlName="label"></textarea>
-              </label> -->
+          </label> 
+          <!-- <div class="alert" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">You must specify a description that's between 30 and 500 characters.</div> -->
+            <!-- <label for="validate">Minimum of 3 Characters</label> -->
+            <!-- <input type="checkbox" name="validate" formControlName="validate" value="1"> On  -->
 
           <label>Label
             <select input type="text" formControlName="label">
@@ -43,7 +40,7 @@
           </label>
           <!-- [disabled]="!rForm.valid" -->
           <input type="submit" class="button expanded" value="Submit Form">
-          <p>restaurant ={{restaurants}}</p>
+          <!-- <p>restaurant ={{restaurants}}</p> -->
         </div>
       </div>
     </form>
@@ -65,8 +62,6 @@
       </div>
     </div>
   </ng-template>
-
-
 </nav>
 
 <div class="container">
