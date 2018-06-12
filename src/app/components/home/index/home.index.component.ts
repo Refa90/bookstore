@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as burgers from './../../../../../scripts/burgers';
+//import * as burgers from './../../../../../scripts/burgers';
 
 
 @Component({

@@ -35,6 +35,36 @@ export class RestaurantService {
           });
   }
 
+  searchRestaurants(name,location,label){
+    let uri = 'http://localhost:4000/restaurants/search?';
+      uri+="name=";
+      uri+=name;
+      uri+='&';
+      uri+="location=";
+      uri+=location;
+      uri+='&';
+      uri+="label=";
+      uri+=label;
+    return this
+            .http
+            .get(uri)
+            .map(res => {
+              return res;
+            });
+  }
+
+  searchRestaurantsByImage(img){
+    console.log(img);
+    let uri='TODO';
+    //TODO :: send the image via HTTP and get return value.
+    return this
+            .http
+            .get(uri)
+            .map(res => {
+              return res;
+            });
+  }
+
   getRestaurants() {
     const uri = 'http://localhost:4000/restaurants';
     return this
