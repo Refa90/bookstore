@@ -45,7 +45,11 @@
         <input type="text" class="form-control" formControlName="picture" #picture   [(ngModel)] = "restaurant.picture"/>
       </div>
       <div class="form-group">
-          <button (click)="updateRestaurant(name.value, location.value, description.value, labels.value, rating.value, picture.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Update</button>
+        <label class="col-md-4">Restaurant Url</label>
+        <input type="text" class="form-control" formControlName="url" #url   [(ngModel)] = "restaurant.url"/>
+      </div>
+      <div class="form-group">
+          <button (click)="updateRestaurant(name.value, location.value, description.value, labels.value, rating.value, picture.value, url.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Update</button>
         </div>
     </form>
   </div>

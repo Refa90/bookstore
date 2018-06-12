@@ -108,6 +108,7 @@ restaurantRoutes.route('/update/:id').post(function (req, res) {
       restaurant.labels = req.body.labels;
       restaurant.rating = req.body.rating;
       restaurant.picture = req.body.picture;
+      restaurant.url = req.body.url;
 
       restaurant.save().then(restaurant => {
           res.json('Update complete');

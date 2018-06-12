@@ -9,5 +9,6 @@ var Restaurant = new Schema({
     labels: String,
     rating: Number,
     picture: String,
+    url: String
   });
   module.exports = mongoose.model('Restaurant', Restaurant);

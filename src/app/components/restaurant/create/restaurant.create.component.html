@@ -45,7 +45,11 @@
         <input type="text" class="form-control" formControlName="picture" #picture />
       </div>
       <div class="form-group">
-          <button (click)="addRestaurant(name.value, location.value, description.value, labels.value, rating.value, picture.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Add</button>
+        <label class="col-md-4">Restaurant Url</label>
+        <input type="text" class="form-control" formControlName="url" #url />
+      </div>
+      <div class="form-group">
+          <button (click)="addRestaurant(name.value, location.value, description.value, labels.value, rating.value, picture.value, url.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Add</button>
         </div>
     </form>
   </div>

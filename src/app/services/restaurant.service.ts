@@ -10,7 +10,7 @@ export class RestaurantService {
   result: any;
   constructor(private http: HttpClient) {}
 
-  addRestaurant(name, location, description, labels, rating, picture) {
+  addRestaurant(name, location, description, labels, rating, picture, url) {
     const uri = 'http://localhost:4000/restaurants/add';
     const obj = {
       name: name,
@@ -18,7 +18,8 @@ export class RestaurantService {
       description: description,
       labels: labels,
       rating: rating,
-      picture: picture
+      picture: picture,
+      url: url
     };
 
     // this
@@ -85,7 +86,7 @@ export class RestaurantService {
             });
   }
 
-  updateRestaurant(name, location, description, labels, rating, picture, id) {
+  updateRestaurant(name, location, description, labels, rating, picture, url, id) {
     const uri = 'http://localhost:4000/restaurants/update/' + id;
 
     const obj = {
@@ -94,7 +95,8 @@ export class RestaurantService {
         description: description,
         labels: labels,
         rating: rating,
-        picture: picture
+        picture: picture,
+        url: url
     };
 
     // this

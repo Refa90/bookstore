@@ -24,13 +24,14 @@ export class RestaurantUpdateComponent implements OnInit {
       description: ['', Validators.required],
       labels: ['', Validators.required],
       rating: ['', Validators.required],
-      picture: ['', Validators.required]
+      picture: ['', Validators.required],
+      url: ['', Validators.required]
    });
   }
 
-  updateRestaurant(name, location, description, labels, rating, picture) {
+  updateRestaurant(name, location, description, labels, rating, picture, url) {
     this.route.params.subscribe(params => {
-    this.service.updateRestaurant(name, location, description, labels, rating, picture, params['id']).subscribe(res => {
+    this.service.updateRestaurant(name, location, description, labels, rating, picture, url, params['id']).subscribe(res => {
       this.router.navigate(['restaurants','index']);
     });
   });

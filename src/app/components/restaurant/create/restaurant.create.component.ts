@@ -27,8 +27,8 @@ export class RestaurantCreateComponent implements OnInit {
     });
   }
 
-  addRestaurant(name, location, description, labels, rating, picture) {
-    this.restervice.addRestaurant(name, location, description, labels, rating, picture).subscribe(res => {
+  addRestaurant(name, location, description, labels, rating, picture, url) {
+    this.restervice.addRestaurant(name, location, description, labels, rating, picture, url).subscribe(res => {
       this.router.navigate(['/restaurants/index']);
     });
   }
