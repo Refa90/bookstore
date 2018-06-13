@@ -23,7 +23,8 @@ export class RestaurantCreateComponent implements OnInit {
       description: ['', Validators.required],
       labels: ['', Validators.required],
       rating: ['', Validators.required,/* Validators.pattern('/[0-9\+\-\ ]/')*/],
-      picture: ['', Validators.required]
+      picture: ['', Validators.required],
+      url: ['', Validators.required]
     });
   }
 
