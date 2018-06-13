@@ -12,7 +12,7 @@ import { appRoutes } from './routerConfig';
 
 import { BookService } from './book.service';
 import { RestaurantService } from './services/restaurant.service';
-import { StatisticsIndexComponent } from './components/statistics/index/statistics.component';
+import { StatsService } from './services/stats.service'
 import { HomeIndexComponent } from './components/home/index/home.index.component';
 import { RestaurantIndexComponent } from './components/restaurant/index/restaurant.index.component';
 import { RestaurantCreateComponent } from './components/restaurant/create/restaurant.create.component';
@@ -22,6 +22,9 @@ import { SearchComponent } from './components/search/search.component';
 import { RecipeResultsComponent } from './components/recipe-results/recipe-results.component';
 import { RestaurantResultsComponent } from './components/restaurant-results/restaurant-results.component';
 import { SharedDataService } from './services/sharedData.service';
+import { LabelComponent } from './components/statistics/label/label.component';
+import { RatingComponent } from './components/statistics/rating/rating.component';
+import { BarChartComponent } from 'angular-d3-charts'; // this is needed!
 
 @NgModule({
   declarations: [
@@ -29,7 +32,7 @@ import { SharedDataService } from './services/sharedData.service';
     BookIndexComponent,
     CreateComponent,
     EditComponent,
-    StatisticsIndexComponent,
+    StatsService,
     HomeIndexComponent,
     RestaurantIndexComponent,
     RestaurantCreateComponent,
@@ -37,7 +40,10 @@ import { SharedDataService } from './services/sharedData.service';
     ChatComponent,
     SearchComponent,
     RecipeResultsComponent,
-    RestaurantResultsComponent
+    RestaurantResultsComponent,
+    LabelComponent,
+    RatingComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
