@@ -7,8 +7,12 @@ var Restaurant = require('../models/Restaurant');
 
 
 /* GET ALL RESTAURANTS */
-restaurantRoutes.route('/').get(function (req, res) {
-  Restaurant.find(function (err, rests){
+restaurantRoutes.route('/').get(function (req, res) {  
+  var cursor = Restaurant.find();
+  if (req.query.limit != "all"){
+    cursor = cursor.limit(req.query.limit);
+  }
+  cursor.toArray(function (err, rests){
     if(err){
       console.log(err);
     }

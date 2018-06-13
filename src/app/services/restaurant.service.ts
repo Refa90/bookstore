@@ -66,8 +66,8 @@ export class RestaurantService {
             });
   }
 
-  getRestaurants() {
-    const uri = 'http://localhost:4000/restaurants';
+  getRestaurants(limit="all") {
+    const uri = 'http://localhost:4000/restaurants?limit='+limit;
     return this
             .http
             .get(uri)
