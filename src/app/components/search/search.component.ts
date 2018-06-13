@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { RestaurantService } from '../../services/restaurant.service';
+import { SharedDataService } from '../../services/sharedData.service';
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -14,7 +16,7 @@ export class SearchComponent implements OnInit {
   titleAlert:string = 'This field is required';
   restaurants: any;
   selectedImageFile: any;
-  constructor(private fb: FormBuilder,private service: RestaurantService) { 
+  constructor(private fb: FormBuilder,private service: RestaurantService, private sharedData: SharedDataService) { 
     this.rForm = fb.group({
       'name' : [null, Validators.required],
       'location' : [null, Validators.required],
@@ -25,12 +27,17 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.service.getRestaurants().subscribe(res => {
+      this.sharedData.changeRestaurantResults(res);
+    });
   }
   searchReastaurnat(searchModel){
     console.log(searchModel);
     this.service.searchRestaurants(searchModel.name,searchModel.location,searchModel.label).subscribe(res => {
       console.log(res);
-      this.restaurants = res;
+      // this.sharedData.changeRestaurantResults(res);
+      this.sharedData.changeRestaurantResults(['test']);
+      
     });
   }
 

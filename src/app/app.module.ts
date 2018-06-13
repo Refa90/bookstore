@@ -21,6 +21,7 @@ import { ChatComponent } from './components/chat/chat.component';
 import { SearchComponent } from './components/search/search.component';
 import { RecipeResultsComponent } from './components/recipe-results/recipe-results.component';
 import { RestaurantResultsComponent } from './components/restaurant-results/restaurant-results.component';
+import { SharedDataService } from './services/sharedData.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { RestaurantResultsComponent } from './components/restaurant-results/rest
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [BookService, RestaurantService],
+  providers: [BookService, RestaurantService, SharedDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

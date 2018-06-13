@@ -36,7 +36,7 @@ export class RestaurantService {
           });
   }
 
-  searchRestaurants(name,location,label){
+  searchRestaurants(name,location,label) : any{
     let uri = 'http://localhost:4000/restaurants/search?';
       uri+="name=";
       uri+=name;
@@ -66,13 +66,14 @@ export class RestaurantService {
             });
   }
 
-  getRestaurants(limit="all") {
+  getRestaurants(limit : any="all") : any {
     const uri = 'http://localhost:4000/restaurants?limit='+limit;
     return this
             .http
             .get(uri)
             .map(res => {
-              return res;
+              // return res;
+              return ["test"];
             });
   }
 
