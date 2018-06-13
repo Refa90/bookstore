@@ -66,14 +66,13 @@ export class RestaurantService {
             });
   }
 
-  getRestaurants() {
+  getRestaurants() : any {
     const uri = 'http://localhost:4000/restaurants';
     return this
             .http
             .get(uri)
             .map(res => {
-              // return res;
-              return ["test"];
+              return res;
             });
   }
 
