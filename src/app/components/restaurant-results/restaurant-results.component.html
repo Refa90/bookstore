@@ -1,46 +1,16 @@
 <div class="car_wrap">
-  <h2>Results:</h2>
+  <h2>Restaurants:</h2>
   <ul>
-    <li *ngFor="let retaurant of this.restaurants">
-      {{ retaurant }}
-    </li>
+
   </ul>
   <a href="#" class="prev"></a><a href="#" class="next"></a>
   <ul class="carousel1">
-    <li>
-      <div><img src="images/page1_img1.jpg" alt="">
-        <div class="col1 upp"> <a href="#">Lorem ipsum doamet consectet</a></div>
-        <span> Dorem ipsum dolor amet consectetur</span>
-        <div class="price">45$</div>
-      </div>
-    </li>
-    <li>
-      <div><img src="images/page1_img2.jpg" alt="">
-        <div class="col1 upp"> <a href="#">Lorem ipsum doamet consectet</a></div>
-        <span> Dorem ipsum dolor amet consectetur</span>
-        <div class="price">45$</div>
-      </div>
-    </li>
-    <li>
-      <div><img src="images/page1_img3.jpg" alt="">
-        <div class="col1 upp"> <a href="#">Lorem ipsum doamet consectet</a></div>
-        <span> Dorem ipsum dolor amet consectetur</span>
-        <div class="price">45$</div>
-      </div>
-    </li>
-    <li>
-      <div><img src="images/page1_img4.jpg" alt="">
-        <div class="col1 upp"> <a href="#">Lorem ipsum doamet consectet</a></div>
-        <span> Dorem ipsum dolor amet consectetur</span>
-        <div class="price">45$</div>
-      </div>
-    </li>
-    <li>
-      <div><img src="images/page1_img3.jpg" alt="">
-        <div class="col1 upp"> <a href="#">Lorem ipsum doamet consectet</a></div>
-        <span> Dorem ipsum dolor amet consectetur</span>
-        <div class="price">45$</div>
-      </div>
-    </li>
+      <li *ngFor="let retaurant of this.restaurants">
+          <div><img src="{{retaurant.picture}}" alt="">
+            <div class="col1 upp"> <a href="{{retaurant.url}}">{{retaurant.name}}</a></div>
+            <span>{{retaurant.location}} </span>
+            <div class="price">45$</div>
+          </div>
+        </li>
   </ul>
 </div>
