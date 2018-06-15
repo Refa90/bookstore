@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { RestaurantService } from '../../services/restaurant.service';
 import { SharedDataService } from '../../services/sharedData.service';
+import { RecipeService } from '../../services/recipe.service';
 
 @Component({
   selector: 'app-search',
@@ -16,7 +17,7 @@ export class SearchComponent implements OnInit {
   titleAlert:string = 'This field is required';
   restaurants: any;
   selectedImageFile: any;
-  constructor(private fb: FormBuilder,private service: RestaurantService, private sharedData: SharedDataService) { 
+  constructor(private fb: FormBuilder,private service: RestaurantService, private sharedData: SharedDataService, private recipyService: RecipeService) { 
     this.rForm = fb.group({
       'name' : [null, Validators.required],
       'location' : [null, Validators.required],
@@ -35,8 +36,15 @@ export class SearchComponent implements OnInit {
     console.log(searchModel);
     this.service.searchRestaurants(searchModel.name,searchModel.location,searchModel.label).subscribe(res => {
       console.log(res);
-      // this.sharedData.changeRestaurantResults(res);
-      this.sharedData.changeRestaurantResults(['test']);
+      this.sharedData.changeRestaurantResults(res);
+      // this.sharedData.changeRestaurantResults(['test']);
+      
+    });
+    this.recipyService.searchRecipe(searchModel.name).subscribe(res => {
+      console.log(res);
+      debugger;
+      this.sharedData.changeRecipyResults(res);
+      // this.sharedData.changeRestaurantResults(['test']);
       
     });
   }

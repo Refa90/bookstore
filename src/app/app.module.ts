@@ -25,6 +25,7 @@ import { SharedDataService } from './services/sharedData.service';
 import { LabelComponent } from './components/statistics/label/label.component';
 import { RatingComponent } from './components/statistics/rating/rating.component';
 import { BarChartComponent } from 'angular-d3-charts'; // this is needed!
+import { RecipeService } from './services/recipe.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { BarChartComponent } from 'angular-d3-charts'; // this is needed!
     BookIndexComponent,
     CreateComponent,
     EditComponent,
-    StatsService,
+    // StatsService,
     HomeIndexComponent,
     RestaurantIndexComponent,
     RestaurantCreateComponent,
@@ -52,7 +53,7 @@ import { BarChartComponent } from 'angular-d3-charts'; // this is needed!
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [BookService, RestaurantService, SharedDataService],
+  providers: [BookService, RestaurantService, SharedDataService, RecipeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

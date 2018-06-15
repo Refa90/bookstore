@@ -11,13 +11,23 @@ export class SharedDataService {
   private restaurantResults = new BehaviorSubject(this.resList);
   currentRestaurantResults = this.restaurantResults.asObservable();
 
+  changeRestaurantResults(results: any[]) {
+    this.restaurantResults.next(results)
+  } 
+  
+  private recList: any[] = [];
+  private recipyResults = new BehaviorSubject(this.recList);
+  currentRecipyResults = this.recipyResults.asObservable();
+
+  changeRecipyResults(results: any[]) {
+    this.recipyResults.next(results)
+  } 
+
   constructor(private service: RestaurantService) {
     // this.service.getRestaurants(10).subscribe(res => {
     //   this.changeRestaurantResults(res);
     // });
    }
 
-  changeRestaurantResults(results: any[]) {
-    this.restaurantResults.next(results)
-  }
+  
 }

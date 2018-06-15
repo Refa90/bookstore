@@ -14,8 +14,9 @@ export class RecipeService {
         return this
                 .http
                 .get(uri)
-                .map(res => {
-                  return res;
+                .map((res : string) => {
+                  
+                  return JSON.parse(res).recipes;
                 });
       }
 }

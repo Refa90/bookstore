@@ -1,3 +1,16 @@
-<p>
-  recipe-results works!
-</p>
+<div class="car_wrap">
+  <h2>Recipies:</h2>
+  <ul>
+
+    </ul>
+    <a href="#" class="prev" id="prev2"></a><a href="#" class="next" id="next2"></a>
+    <ul class="carousel3">
+      <li *ngFor="let recipy of this.recipies">
+          <div><img src="{{recipy.image_url}}" alt="">
+            <div class="col1 upp"> <a href="{{recipy.source_url}}" target="blank">{{recipy.title}}</a></div>
+            <span>{{recipy.publisher}} </span>
+            <div class="price">{{recipy.social_rank | number : '.2'}}</div>
+          </div>
+        </li>
+  </ul>
+</div>

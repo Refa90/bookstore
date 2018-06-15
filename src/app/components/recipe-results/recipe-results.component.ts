@@ -1,3 +1,4 @@
+import { SharedDataService } from '../../services/sharedData.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styles: []
 })
 export class RecipeResultsComponent implements OnInit {
+  recipies:any[] = [];
 
-  constructor() { }
+  constructor(private sharedData: SharedDataService) { }
 
   ngOnInit() {
+    this.sharedData.currentRecipyResults.subscribe(res => this.recipies = res);
   }
 
 }

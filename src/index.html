@@ -36,17 +36,20 @@ $(window).load(function () {
     })
 });
 $(window).load(function () {
-    $('.carousel1').carouFredSel({
+  initUI();
+});
+function initUI() {
+  $('.carousel1').carouFredSel({
         auto: false,
-        prev: '.prev',
-        next: '.next',
+        prev: '#prev1',
+        next: '#next1',
         width: 960,
         items: {
             visible: {
                 min: 1,
                 max: 4
             },
-            height: 'auto',
+            height: 240,
             width: 240,
         },
         responsive: false,
@@ -57,7 +60,28 @@ $(window).load(function () {
             onTouch: false
         }
     });
-});
+    $('.carousel3').carouFredSel({
+        auto: false,
+        prev: '#prev2',
+        next: '#next2',
+        width: 960,
+        items: {
+            visible: {
+                min: 1,
+                max: 4
+            },
+            height: 240,
+            width: 240,
+        },
+        responsive: false,
+        scroll: 1,
+        mousewheel: false,
+        swipe: {
+            onMouse: false,
+            onTouch: false
+        }
+    });
+}
 </script>
 <!--[if lt IE 9]>
 <script src="js/html5shiv.js"></script>

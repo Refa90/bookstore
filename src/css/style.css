@@ -326,6 +326,50 @@ header h1 a img {
  box-sizing: border-box;
  margin-bottom: 19px;
 }
+.carousel3 {
+	height: 249px;
+}
+
+.carousel3 li {
+	float: left;
+	width: 240px !important;
+	font-size: 12px;
+}
+
+.carousel3 li >div {
+	padding: 0 10px;
+}
+
+.carousel3 li .price {
+	display: inline-block;
+	background: #699440;
+	color: #fff;
+	min-width: 41px;
+	height: 38px;
+	border-radius: 4px;
+	font: 20px/36px 'Lobster', cursive;
+	text-align: center;
+	margin-top: 15px;
+}
+
+
+.carousel3 li span {
+	line-height: 16px;
+}
+
+.carousel3 img {
+	box-shadow: 2px 2px 3px #ddd;
+	padding: 4px;
+	background: #fff;
+	border: 1px solid #e6e4e4;
+	 -moz-box-sizing: border-box;
+ -webkit-box-sizing: border-box;
+ -o-box-sizing: border-box;
+ box-sizing: border-box;
+ margin-bottom: 19px;
+ height: 131px;
+ width: 209px;
+}
 
 .prev {
 	background: url(../images/prevnext.png) 0 bottom no-repeat;
