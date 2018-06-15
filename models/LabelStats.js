@@ -2,8 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var LabelStats = new Schema({
-    label:String,
+    labels: String,
     count: Number,
   });
 
-  module.exports = mongoose.model('LabelStats', LabelStats);
+module.exports = mongoose.model('LabelStats', LabelStats);

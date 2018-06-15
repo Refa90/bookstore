@@ -1,18 +1,15 @@
-.bar{
-    fill: steelblue;
-  }
+/* You can add global styles to this file, and also import other style files */
 
-  .bar:hover{
-    fill: brown;
-  }
+.bar {
+  fill: steelblue;
+}
 
-	.axis {
-	  font: 10px sans-serif;
-	}
+.bar:hover {
+  fill: brown;
+}
 
-	.axis path,
-	.axis line {
-	  fill: none;
-	  stroke: #000;
-	  shape-rendering: crispEdges;
-	}
+.axis-title {
+  fill: none;
+  stroke: black;
+  stroke-width: 0.5px;
+}

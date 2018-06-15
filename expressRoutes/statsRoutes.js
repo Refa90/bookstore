@@ -3,7 +3,7 @@ var app = express();
 var statsRoutes = express.Router();
 
 // Require Item model in our routes module
-var LabelStats = require('../models/LabelStats');
+var Restaurant = require('../models/Restaurant');
 
 /* GET ALL RESTAURANTS */
 statsRoutes.route('/label').get(function (req, res) { 
@@ -11,8 +11,8 @@ statsRoutes.route('/label').get(function (req, res) {
     groupObj = {}
     projectObj = { total : '$total', _id : 0}
     
-    groupObj["label"] = "$label";
-    projectObj["label"] = "$_id.label";
+    groupObj["labels"] = "$labels";
+    projectObj["labels"] = "$_id.labels";
     
     var agg = 
         [
@@ -20,8 +20,14 @@ statsRoutes.route('/label').get(function (req, res) {
         {$project : projectObj}
         ];
     
-    LabelStats.aggregate(agg)
-    .then(rests => { res.json(rests); })
+    Restaurant.aggregate(agg)
+    .then(rests => {
+        labelStats = []; 
+        for (var i in rests){
+            labelStats.push({labels: rests[i].labels, total: rests[i].total});
+        }
+        res.json(labelStats); 
+    })
     .catch(error => { console.log(error); })
 });
 
