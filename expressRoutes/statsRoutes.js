@@ -45,8 +45,14 @@ statsRoutes.route('/rating').get(function (req, res) {
         {$project : projectObj}
         ];
     
-    LabelStats.aggregate(agg)
-    .then(rests => { res.json(rests); })
+    Restaurant.aggregate(agg)
+    .then(rests => { 
+        ratingStats = []; 
+        for (var i in rests){
+            ratingStats.push({rating: rests[i].rating, total: rests[i].total});
+        }
+        res.json(ratingStats); 
+    })
     .catch(error => { console.log(error); })
 });
 
