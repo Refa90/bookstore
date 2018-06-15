@@ -5,9 +5,8 @@ var statsRoutes = express.Router();
 // Require Item model in our routes module
 var LabelStats = require('../models/LabelStats');
 
-
 /* GET ALL RESTAURANTS */
-statsRoutes.route('/stats/label').get(function (req, res) { 
+statsRoutes.route('/label').get(function (req, res) { 
   
     groupObj = {}
     projectObj = { total : '$total', _id : 0}
@@ -26,7 +25,7 @@ statsRoutes.route('/stats/label').get(function (req, res) {
     .catch(error => { console.log(error); })
 });
 
-statsRoutes.route('/stats/rating').get(function (req, res) { 
+statsRoutes.route('/rating').get(function (req, res) { 
   
     groupObj = {}
     projectObj = { total : '$total', _id : 0}
@@ -44,3 +43,6 @@ statsRoutes.route('/stats/rating').get(function (req, res) {
     .then(rests => { res.json(rests); })
     .catch(error => { console.log(error); })
 });
+
+
+module.exports = statsRoutes;

@@ -8,7 +8,9 @@ import 'rxjs/add/operator/map';
 export class StatsService {
 
   result: any;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    console.log("init stats service")
+  }
 
   ngOnInit(){
   }

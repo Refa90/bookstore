@@ -12,7 +12,7 @@ import { appRoutes } from './routerConfig';
 
 import { BookService } from './book.service';
 import { RestaurantService } from './services/restaurant.service';
-import { StatsService } from './services/stats.service'
+import { StatsService } from './services/stats.service';
 import { HomeIndexComponent } from './components/home/index/home.index.component';
 import { RestaurantIndexComponent } from './components/restaurant/index/restaurant.index.component';
 import { RestaurantCreateComponent } from './components/restaurant/create/restaurant.create.component';
@@ -33,7 +33,6 @@ import { RecipeService } from './services/recipe.service';
     BookIndexComponent,
     CreateComponent,
     EditComponent,
-    // StatsService,
     HomeIndexComponent,
     RestaurantIndexComponent,
     RestaurantCreateComponent,
@@ -53,7 +52,7 @@ import { RecipeService } from './services/recipe.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [BookService, RestaurantService, SharedDataService, RecipeService],
+  providers: [BookService, RestaurantService, SharedDataService, RecipeService, StatsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

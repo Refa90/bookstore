@@ -9,7 +9,8 @@ const express = require('express'),
   bookRoutes = require('./expressRoutes/bookRoutes'),
   //  recipeApi = require('./scripts/recipeApi'),
   restaurantRoutes = require('./expressRoutes/restaurantRoutes'),
-  recipeRoutes=require('./expressRoutes/recipeRoutes');
+  recipeRoutes=require('./expressRoutes/recipeRoutes'),
+  statsRoutes = require('./expressRoutes/statsRoutes');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB).then(
@@ -29,6 +30,7 @@ const port = process.env.PORT || 4000;
 app.use('/books', bookRoutes);
 app.use('/restaurants', restaurantRoutes);
 app.use('/recipe', recipeRoutes);
+app.use('/stats', statsRoutes)
 
 
 const server = app.listen(port, function() {
