@@ -1,49 +1,48 @@
-<h2>Search:</h2>
-  <!-- <div *ngIf="!name; else forminfo"> -->
-      <div >
-          <form [formGroup]="rForm" (ngSubmit)="searchReastaurnat(rForm.value)">
-            <div class="form-container">
-              <div class="row columns">
-                <div>
-                    <label>Name
-                        <input type="text" formControlName="name">
-                      </label>
-                     <!-- <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">{{ titleAlert }}</div> -->       
-                </div>
-                <div>
-                    <label>Location
-                        <input type="text" formControlName="location">
-                      </label> 
-                      <!-- <div class="alert" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">You must specify a description that's between 30 and 500 characters.</div> -->
-                        <!-- <label for="validate">Minimum of 3 Characters</label> -->
-                        <!-- <input type="checkbox" name="validate" formControlName="validate" value="1"> On  -->
-                </div>
-     
-  <div>
-
-      <label>Label
-          <select input type="text" formControlName="label">
-            <option value="option1">option1
-              <option value="option2">option2
-                <option value="option3">option3
-
-          </select>
-        </label>
-  </div>
-                
-                <!-- [disabled]="!rForm.valid" -->
-                <input type="submit" class="button expanded" value="Submit Form">
-                <!-- <p>restaurant ={{restaurants}}</p> -->
-              </div>
-            </div>
-          </form>
+<h2 >Search:</h2>
+<!-- <div *ngIf="!name; else forminfo"> -->
+<div>
+  <form [formGroup]="rForm" (ngSubmit)="searchReastaurnat(rForm.value)">
+    <div class="form-container">
+      <div class="row columns">
+        <div>
+          <label>Name
+            <input type="text" formControlName="name">
+          </label>
+          <!-- <div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">{{ titleAlert }}</div> -->
         </div>
         <div>
-            <h2>Find by image</h2>
-            <input type="file" (change)="onFileSelected($event)">
-            <div>
-                <button type="button" (click)="onUpload()">Upload</button>
-
-            </div>
-
+          <label>Location
+            <input type="text" formControlName="location">
+          </label>
+          <!-- <div class="alert" *ngIf="!rForm.controls['description'].valid && rForm.controls['description'].touched">You must specify a description that's between 30 and 500 characters.</div> -->
+          <!-- <label for="validate">Minimum of 3 Characters</label> -->
+          <!-- <input type="checkbox" name="validate" formControlName="validate" value="1"> On  -->
         </div>
+
+        <div>
+
+          <label>Label
+            <select input type="text" formControlName="label">
+              <option value="option1">option1
+                <option value="option2">option2
+                  <option value="option3">option3
+
+            </select>
+          </label>
+        </div>
+        <!-- [disabled]="!rForm.valid" -->
+        <input type="submit" class="button expanded" value="Submit Form">
+        <!-- <p>restaurant ={{restaurants}}</p> -->
+      </div>
+    </div>
+  </form>
+</div>
+<div>
+  <h2 > Find by image</h2>
+  <input type="file" (change)="onFileSelected($event)">
+  <div>
+    <button type="button" (click)="onUpload()">Upload</button>
+
+  </div>
+
+</div>

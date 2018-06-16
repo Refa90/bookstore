@@ -27,6 +27,7 @@ nav{ position:relative;padding: 0px 0 0 0;}
 
 .sf-menu>li>a{
 	font-size: 18px;
+	text-shadow: 1px 1px white;
 	font-family: 'Noto Sans', sans-serif;
 	color: #85423f;
 	position: relative;

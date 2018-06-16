@@ -1,4 +1,4 @@
-body,html{width:100%;height:100%;overflow: hidden;background: white;}
+body,html{width:100%;height:100%;background: white;}
 canvas{
 	position: absolute;
 	top:50%;
@@ -7,3 +7,4 @@ canvas{
     width: 50%;
 	transform: translate(-50%,-50%);
 }
+
