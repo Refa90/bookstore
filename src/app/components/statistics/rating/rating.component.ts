@@ -37,7 +37,6 @@ export class RatingComponent implements OnInit {
   ngOnInit() {
     this.statsService.getRatingStats().subscribe(res => {
       console.log("rating data:" + res[0] + "," + res[1]);
-      debugger;
       this.data = res;
       this.initSvg();
       this.drawPie(this.data);
