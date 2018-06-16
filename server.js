@@ -9,7 +9,9 @@ const express = require('express'),
   bookRoutes = require('./expressRoutes/bookRoutes'),
   restaurantRoutes = require('./expressRoutes/restaurantRoutes'),
   recipeRoutes=require('./expressRoutes/recipeRoutes'),
-  statsRoutes = require('./expressRoutes/statsRoutes');
+  statsRoutes = require('./expressRoutes/statsRoutes'),
+  socket = require('socket.io');
+  
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB).then(
@@ -36,5 +38,30 @@ const server = app.listen(port, function() {
   console.log('Listening on port ' + port);
 });
 
+var app2 = express();
+// var cors = require('cors');    
+app2.use(cors({credentials: true,origin: 'http://localhost:4200'}));
+
+var server2 = app2.listen(4001, function(){
+    console.log('listening for requests on port 4001,');
+});
+
+// Socket setup & pass server
+var io = socket(server2);
+io.on('connection', (socket) => {
+
+    console.log('made socket connection', socket.id);
+
+    // Handle chat event
+    socket.on('chat', function(data){
+        // console.log(data);
+        io.sockets.emit('chat', data);
+    });
+
+    // Handle typing event
+    socket.on('typing', function(data){
+        socket.broadcast.emit('typing', data);
+    });
+});
 
 //  recipeApi.getRecipe('chicken')

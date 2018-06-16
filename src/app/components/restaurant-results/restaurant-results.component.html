@@ -3,13 +3,13 @@
   <ul>
 
   </ul>
-  <a href="#" class="prev"></a><a href="#" class="next"></a>
+  <a href="#" class="prev" id="prev1"></a><a href="#" class="next" id="next1"></a>
   <ul class="carousel1">
       <li *ngFor="let retaurant of this.restaurants">
           <div><img src="{{retaurant.picture}}" alt="">
             <div class="col1 upp"> <a href="{{retaurant.url}}">{{retaurant.name}}</a></div>
             <span>{{retaurant.location}} </span>
-            <div class="price">{{retaurant.rating}}</div>
+            <div class="price">45$</div>
           </div>
         </li>
   </ul>
