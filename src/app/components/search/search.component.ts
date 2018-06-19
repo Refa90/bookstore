@@ -40,6 +40,7 @@ export class SearchComponent implements OnInit {
       // this.sharedData.changeRestaurantResults(['test']);
       
     });
+    // TODO :: why this is by name and not by label ?
     this.recipyService.searchRecipe(searchModel.name).subscribe(res => {
       console.log(res);
       debugger;
@@ -54,11 +55,23 @@ export class SearchComponent implements OnInit {
     this.selectedImageFile=<File>event.target.files[0];
     debugger;
 }
+searchReastaurnatByImage(searchModel){
+console.log("predict image from: "+searchModel.name )
+this.service.searchRestaurantsByImage(searchModel.name).subscribe(res => {
+console.log("the result is: "+res);           
+// get restaurants and recipies.
+});
+
+}
+
 onUpload(){
-  console.log('upload image clicked');
+  console.log('upload image clicked'); 
+  // get predifction              
   this.service.searchRestaurantsByImage(this.selectedImageFile).subscribe(res => {
     console.log(res);
     this.selectedImageFile = res;
+             
+  // get restaurants and recipies.
   });
 }
 }

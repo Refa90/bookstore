@@ -37,6 +37,21 @@ restaurantRoutes.route('/search').get(function (req, res) {
     .catch(error => { console.log(error); })
 });
 
+restaurantRoutes.route('/searchImage').get(function (req, res) {
+  url = req.query
+  query = []
+  console.log("the parameter is: "+url.name)
+  request('127.0.0.1:5000/bar?url='+url.name , { json: false }, (err, resInner, body) => {
+        if (err) { 
+            return console.log(err); 
+        }
+        console.log(body);
+      
+        res.json(body);
+    });
+});
+
+
 restaurantRoutes.route('/stats').get(function (req, res) {
   
   groupObj = {}

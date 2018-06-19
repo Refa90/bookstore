@@ -1,4 +1,4 @@
-<h2 >Search:</h2>
+<h2>Search:</h2>
 <!-- <div *ngIf="!name; else forminfo"> -->
 <div>
   <form [formGroup]="rForm" (ngSubmit)="searchReastaurnat(rForm.value)">
@@ -18,15 +18,12 @@
           <!-- <label for="validate">Minimum of 3 Characters</label> -->
           <!-- <input type="checkbox" name="validate" formControlName="validate" value="1"> On  -->
         </div>
-
         <div>
-
           <label>Label
             <select input type="text" formControlName="label">
               <option value="option1">option1
                 <option value="option2">option2
                   <option value="option3">option3
-
             </select>
           </label>
         </div>
@@ -37,12 +34,21 @@
     </div>
   </form>
 </div>
+
+<h2> Find by image</h2>
 <div>
-  <h2 > Find by image</h2>
-  <input type="file" (change)="onFileSelected($event)">
-  <div>
-    <button type="button" (click)="onUpload()">Upload</button>
-
-  </div>
-
+  <form [formGroup]="rForm" (ngSubmit)="searchReastaurnatByImage(rForm.value)">
+    <div class="form-container">
+      <div class="row columns">
+        <div>
+          <label>url
+            <input type="text" formControlName="name">
+          </label>
+        </div>
+        <div>
+        </div>
+        <input type="submit" class="button expanded" value="Submit Form">
+      </div>
+    </div>
+  </form>
 </div>

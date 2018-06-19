@@ -55,15 +55,36 @@ export class RestaurantService {
   }
 
   searchRestaurantsByImage(img){
-    console.log(img);
-    let uri='TODO';
-    //TODO :: send the image via HTTP and get return value.
+    
+    let uri = 'http://localhost:4000/restaurants/searchImage?name=';
+    uri+=img;
     return this
             .http
             .get(uri)
             .map(res => {
               return res;
             });
+
+    // let uri = 'http://127.0.0.1:5000/bar?url=';
+    // uri+=img;
+    // console.log("the final url is: "+uri)
+    // return this
+    //         .http
+    //         .get(uri)
+    //         .map(res => {
+    //           return res;
+    //         });
+
+
+    // console.log("this is the unput to the api: "+ img);
+    // let uri='TODO';
+    // //TODO :: send the image via HTTP and get return value.
+    // return this
+    //         .http
+    //         .get(uri)
+    //         .map(res => {
+    //           return res;
+    //         });
   }
 
   getRestaurants() : any {
