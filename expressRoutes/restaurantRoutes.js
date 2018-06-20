@@ -4,7 +4,7 @@ var restaurantRoutes = express.Router();
 
 // Require Item model in our routes module
 var Restaurant = require('../models/Restaurant');
-
+const request = require('request');
 
 /* GET ALL RESTAURANTS */
 restaurantRoutes.route('/').get(function (req, res) {  
@@ -22,14 +22,14 @@ restaurantRoutes.route('/').get(function (req, res) {
 restaurantRoutes.route('/search').get(function (req, res) {
     url = req.query
     query = []
-    if(url.name != null){
+    if(url.name != null  && url.name!="null"){
       query.push({"name": url.name})
     }
-    if(url.location != null){
+    if(url.location != null && url.location!="null"){
       query.push({"location": url.location})
     }
-    if(url.label != null){
-      query.push({"label": url.label})
+    if(url.label != null && url.label!="null"){
+      query.push({"labels": url.label})
     }
     
     Restaurant.find().or(query)
@@ -41,12 +41,11 @@ restaurantRoutes.route('/searchImage').get(function (req, res) {
   url = req.query
   query = []
   console.log("the parameter is: "+url.name)
-  request('127.0.0.1:5000/bar?url='+url.name , { json: false }, (err, resInner, body) => {
+  request('http://127.0.0.1:5000/bar?url='+url.name , { json: false }, (err, resInner, body) => {
         if (err) { 
             return console.log(err); 
         }
         console.log(body);
-      
         res.json(body);
     });
 });
