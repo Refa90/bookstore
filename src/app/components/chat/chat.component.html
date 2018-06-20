@@ -17,5 +17,6 @@
   </div>
   <input id="handle" type="text" placeholder="Please enter your name"  [(ngModel)]="name" />
   <input id="message" type="text" placeholder="Message"  [(ngModel)]="message" />
+  <button id="send" (click)="postMessage()">Facebook Post</button>
   <button id="send" (click)="sendMessage()">Send</button>
 </div>
