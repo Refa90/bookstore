@@ -8,6 +8,7 @@ import { HomeIndexComponent } from './components/home/index/home.index.component
 import { RestaurantIndexComponent } from './components/restaurant/index/restaurant.index.component';
 import { RestaurantCreateComponent } from './components/restaurant/create/restaurant.create.component';
 import { RestaurantUpdateComponent } from './components/restaurant/update/restaurant.update.component';
+import { StatsPageComponent } from './components/statistics/stats-page/stats-page.component';
 
 export const appRoutes: Routes = [
   { path: 'books/create',
@@ -20,8 +21,11 @@ export const appRoutes: Routes = [
   { path: 'books/index',
     component: BookIndexComponent
   },
-  { path: 'home/index',
+  { path: '',
      component: HomeIndexComponent
+  },
+  { path: 'stats',
+     component: StatsPageComponent
   },
   {
     path: 'restaurants/index',
