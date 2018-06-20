@@ -23,7 +23,7 @@ export class RestaurantUpdateComponent implements OnInit {
       location: ['', Validators.required],
       description: ['', Validators.required],
       labels: ['', Validators.required],
-      rating: ['', Validators.required],
+      rating: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(1)]],
       picture: ['', Validators.required],
       url: ['', Validators.required]
    });

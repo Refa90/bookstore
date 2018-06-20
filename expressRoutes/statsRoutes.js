@@ -28,7 +28,9 @@ statsRoutes.route('/label').get(function (req, res) {
         }
         res.json(labelStats); 
     })
-    .catch(error => { console.log(error); })
+    .catch(error => { 
+        console.log(error); 
+    })
 });
 
 statsRoutes.route('/rating').get(function (req, res) { 
@@ -53,7 +55,9 @@ statsRoutes.route('/rating').get(function (req, res) {
         }
         res.json(ratingStats); 
     })
-    .catch(error => { console.log(error); })
+    .catch(error => { 
+        console.log(error); 
+    })
 });
 
 

@@ -11,7 +11,7 @@
       </div>
       <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['name'].errors.required">
-          Name is required.
+          <b>Name is required.</b>
         </div>
       </div>
       <div class="form-group">
@@ -20,7 +20,7 @@
       </div>
       <div *ngIf="angForm.controls['location'].invalid && (angForm.controls['location'].dirty || angForm.controls['location'].touched)" class="alert alert-danger">
         <div *ngIf="angForm.controls['location'].errors.required">
-          Location is required.
+          <b>Location is required.</b>
         </div>
       </div>
       <div class="form-group">
@@ -29,16 +29,38 @@
       </div>
       <div class="form-group">
         <label class="col-md-4">Restaurant Labels</label>
-        <input type="text" class="form-control" formControlName="labels" #labels/>
+        <!-- <input type="text" class="form-control" formControlName="labels" #labels/> -->
+        <select input type="text" class="form-control" formControlName="labels" #labels>
+            <option value="Deserts">Deserts
+              <option value="Meet">Meet
+                <option value="FrenchFrize">FrenchFrize
+                    <option value="Vegetarian">Vegetarian
+          </select>
       </div>
       <div *ngIf="angForm.controls['labels'].invalid && (angForm.controls['labels'].dirty || angForm.controls['labels'].touched)" class="alert alert-danger">
-        <div *ngIf="angForm.controls['labels'].errors.required">
-          Published Year is required.
-        </div>
+          <div *ngIf="angForm.controls['labels'].errors.required">
+              <b>Labels are required</b>
+          </div>
       </div>
       <div class="form-group">
         <label class="col-md-4">Restaurant Rating</label>
-        <input type="text" class="form-control" formControlName="rating" #rating />
+        <!-- <input type="text" class="form-control" formControlName="rating" #rating /> -->
+        <select input type="text" class="form-control" formControlName="rating" #rating>
+            <option value="1">1
+              <option value="2">2
+                <option value="3">3
+                    <option value="4">4
+                        <option value="5">5
+
+          </select>
+      </div>
+      <div *ngIf="angForm.controls['rating'].invalid && (angForm.controls['rating'].dirty || angForm.controls['rating'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['rating'].errors.required">
+          <b>Rating is required.</b>
+        </div>
+        <div *ngIf="angForm.hasError('notValid')">
+            <b>Rating is invalid</b>
+        </div>
       </div>
       <div class="form-group">
         <label class="col-md-4">Restaurant Picture</label>
@@ -47,6 +69,11 @@
       <div class="form-group">
         <label class="col-md-4">Restaurant Url</label>
         <input type="text" class="form-control" formControlName="url" #url />
+      </div>
+      <div *ngIf="angForm.controls['url'].invalid && (angForm.controls['url'].dirty || angForm.controls['url'].touched)" class="alert alert-danger">
+          <div *ngIf="angForm.controls['url'].errors.required">
+            <b>Url is required.</b>
+          </div>
       </div>
       <div class="form-group">
           <button (click)="addRestaurant(name.value, location.value, description.value, labels.value, rating.value, picture.value, url.value)" [disabled]="angForm.pristine || angForm.invalid" class="btn btn-primary">Add</button>
