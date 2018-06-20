@@ -94,6 +94,9 @@ restaurantRoutes.get('/:id', function(req, res, next) {
 /* SAVE RESTAURANT */
 restaurantRoutes.route('/add').post(function (req, res) {
   var restaurant = new Restaurant(req.body);
+
+  validate(restaurant, res);
+
   console.log(restaurant);
   restaurant.save()
     .then(item => {
@@ -126,6 +129,8 @@ restaurantRoutes.route('/update/:id').post(function (req, res) {
       restaurant.picture = req.body.picture;
       restaurant.url = req.body.url;
 
+      validate(restaurant, res);
+
       restaurant.save().then(restaurant => {
           res.json('Update complete');
       })
@@ -150,5 +155,38 @@ restaurantRoutes.route('/delete/:id').get(function (req, res) {
 // bookRoutes.get('/', function(req, res, next) {
 //   res.send('Express RESTful API');
 // });
+
+function validate(restaurant, res){
+  errors = [];
+  if(restaurant.name == null || restaurant.name == "undefined"){
+    errors.push("name is missing");
+  }
+
+  if(restaurant.location == null || restaurant.location == "undefined"){
+    errors.push("location is missing");
+  }
+
+  if(restaurant.labels == null || restaurant.labels == "undefined"){
+    errors.push("labels is missing");
+  }
+
+  if(restaurant.rating == null || restaurant.rating == "undefined"){
+    errors.push("labels is missing");
+  }else{
+    var ratingNumeric = parseInt(restaurant.rating);
+    if(isNaN(ratingNumeric)){
+      errors.push("labels is missing");
+    }
+  }
+
+  if(restaurant.url == null || restaurant.url == "undefined"){
+    errors.push("url is missing");
+  }
+    
+  if(errors.length > 0){
+    res.status(400);
+    res.send(errors);
+  }
+}
 
 module.exports = restaurantRoutes;

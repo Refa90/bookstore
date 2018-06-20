@@ -16,14 +16,35 @@ export class RestaurantCreateComponent implements OnInit {
   constructor(private restervice: RestaurantService, private fb: FormBuilder, private router: Router) {
     this.createForm();
   }
+
+  myValidator(group: FormGroup) {
+
+    var fieldValue = group.value;
+    var notValidResult = { notValid: true};
+
+    var numeric = parseInt(fieldValue);
+
+    if(!isNaN(numeric)){
+        if(fieldValue == 1 || 
+          fieldValue == 2 || 
+          fieldValue == 3 || 
+          fieldValue == 4 || 
+          fieldValue == 5){
+            notValidResult = null;
+          }
+    }
+    
+    return notValidResult;
+  }
+  
   createForm() {
     this.angForm = this.fb.group({
       name: ['', Validators.required],
       location: ['', Validators.required],
-      description: ['', Validators.required],
+      description: [''/*, Validators.required*/],
       labels: ['', Validators.required],
-      rating: ['', Validators.required,/* Validators.pattern('/[0-9\+\-\ ]/')*/],
-      picture: ['', Validators.required],
+      rating: [5, [Validators.required, this.myValidator]],
+      picture: [''/*, Validators.required*/],
       url: ['', Validators.required]
     });
   }
