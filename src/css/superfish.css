@@ -22,13 +22,20 @@ nav{ position:relative;padding: 0px 0 0 0;}
 .sf-menu>li:first-child {
 	margin-left: 0;
 }
-
+@font-face{
+    font-family: "Artifika";
+    src:url(/src/fonts/Artifika-Regular.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
 
 
 .sf-menu>li>a{
 	font-size: 18px;
 	text-shadow: 1px 1px white;
-	font-family: 'Noto Sans', sans-serif;
+	font-family: Artifika;
+    font-weight: 100;
+	/* font-family: 'Noto Sans', sans-serif; */
 	color: #85423f;
 	position: relative;
 	text-transform: uppercase;

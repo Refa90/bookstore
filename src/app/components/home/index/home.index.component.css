@@ -1,3 +1,9 @@
+@font-face{
+    font-family: "Artifika";
+    src:url(/src/fonts/Artifika-Regular.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
 footer {
     position: fixed;
     left: 0;
@@ -22,8 +28,11 @@ ul {
     width: 200px;
     background-color: #f1f1f1;
     border: 1px solid #555;
+    font-family: Artifika;
+    font-weight: 100;
 }
 
+ 
 nav a {
     display: block;
     color: #000;
@@ -70,4 +79,5 @@ body {
     overflow: hidden;
     cursor: pointer;
 }
+
 

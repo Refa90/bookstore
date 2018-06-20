@@ -24,6 +24,7 @@
               "src/js",
               "src/images",
               "src/video",
+              "src/fonts",
               "src/assets"
             ],
             "styles": [
