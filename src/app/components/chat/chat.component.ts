@@ -81,6 +81,13 @@ export class ChatComponent implements OnInit, OnDestroy {
     this.message = '';
   }
 
+  postMessage(){
+    this.chatService.postMessage(this.name, this.message).subscribe(message => {
+      alert("message posted to Facebook");
+    });
+  
+  }
+
   ngOnInit() {
     this.connection = this.chatService.getMessages().subscribe(message => {
       this.messages.push(message);
