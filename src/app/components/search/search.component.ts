@@ -58,9 +58,14 @@ searchReastaurnatByImage(searchModel){
   this.service.searchRestaurantsByImage(searchModel.name).subscribe(res => {
     var result=res.toString().slice(1, -2);
     console.log("the result is: "+ result);
-  var searchModel={name:null,location:null,label:result};
-  console.log(searchModel);
-  this.searchReastaurnat(searchModel);
+    if(result=="NonFood"){
+        alert("Picture is not a food");
+    }
+    else{
+      var searchModel={name:null,location:null,label:result};
+      console.log(searchModel);
+      this.searchReastaurnat(searchModel);
+    }
 });
 
 }
