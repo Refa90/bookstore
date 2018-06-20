@@ -15,41 +15,12 @@ export class RatingComponent implements OnInit {
   title: string = 'D3.js with Angular 2!';
   subtitle: string = 'Pie Chart';
 
-  private margin = {top: 20, right: 20, bottom: 30, left: 50};
-  private width: number;
-  private height: number;
-  private radius: number;
-
-  private arc: any;
-  private labelArc: any;
-  private pie: any;
-  private color: any;
-  private svg: any;
-
   private data: any;
   private data2: any = [];
 
   constructor(private statsService : StatsService) { 
-    this.width = 900 - this.margin.left - this.margin.right;
-    this.height = 500 - this.margin.top - this.margin.bottom;
-    this.radius = Math.min(this.width, this.height) / 2;
   }
-  public pieChartData = [{
-    id: 0,
-    label: 'slice 1',
-    value: 50,
-    color: 'blue',
-  }, {
-    id: 1,
-    label: 'slice 2',
-    value: 20,
-    color: 'black',
-  }, {
-    id: 2,
-    label: 'slice 3',
-    value: 30,
-    color: 'red',
-  }]
+ 
 private colors = ["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"];
   ngOnInit() {
     this.statsService.getRatingStats().subscribe(res => {
@@ -60,39 +31,10 @@ private colors = ["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743
 
         this.data2.push({id: i, label : element.rating + ' stars', color : this.colors[i++], value : element.rating })
       });
-      this.initSvg();
-      this.drawPie(this.data);
     })
   }
 
-  private initSvg() {
-    this.color = d3Scale.scaleOrdinal()
-                        .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-    this.arc = d3Shape.arc()
-                      .outerRadius(this.radius - 10)
-                      .innerRadius(0);
-    this.labelArc = d3Shape.arc()
-                           .outerRadius(this.radius - 40)
-                           .innerRadius(this.radius - 40);
-    this.pie = d3Shape.pie()
-                      .sort(null)
-                      .value((d: any) => d.population);
-    this.svg = d3.select("#a123")
-                 .append("g")
-                 .attr("transform", "translate(" + this.width / 2 + "," + this.height / 2 + ")");
 
-  }
 
-  private drawPie(data) {
-    let g = this.svg.selectAll(".arc")
-                    .data(this.pie(data))
-                    .enter().append("g")
-                    .attr("class", "arc");
-    g.append("path").attr("d", this.arc)
-                    .style("fill", (d: any) => this.color(d.data.rating) );
-    g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc.centroid(d) + ")")
-                    .attr("dy", ".35em")
-                    .text((d: any) => d.data.total);
-  }
 
 }
