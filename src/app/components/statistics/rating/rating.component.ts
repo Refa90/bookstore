@@ -27,17 +27,39 @@ export class RatingComponent implements OnInit {
   private svg: any;
 
   private data: any;
+  private data2: any = [];
 
   constructor(private statsService : StatsService) { 
     this.width = 900 - this.margin.left - this.margin.right;
     this.height = 500 - this.margin.top - this.margin.bottom;
     this.radius = Math.min(this.width, this.height) / 2;
   }
-
+  public pieChartData = [{
+    id: 0,
+    label: 'slice 1',
+    value: 50,
+    color: 'blue',
+  }, {
+    id: 1,
+    label: 'slice 2',
+    value: 20,
+    color: 'black',
+  }, {
+    id: 2,
+    label: 'slice 3',
+    value: 30,
+    color: 'red',
+  }]
+private colors = ["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"];
   ngOnInit() {
     this.statsService.getRatingStats().subscribe(res => {
       console.log("rating data:" + res[0] + "," + res[1]);
       this.data = res;
+      var i = 0;
+      this.data.forEach(element => {
+
+        this.data2.push({id: i, label : element.rating + ' stars', color : this.colors[i++], value : element.rating })
+      });
       this.initSvg();
       this.drawPie(this.data);
     })

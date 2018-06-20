@@ -25,8 +25,10 @@ import { SharedDataService } from './services/sharedData.service';
 import { LabelComponent } from './components/statistics/label/label.component';
 import { RatingComponent } from './components/statistics/rating/rating.component';
 import { BarChartComponent } from 'angular-d3-charts'; // this is needed!
+import { PieChartComponent } from 'angular-d3-charts'; // this is needed!
 import { RecipeService } from './services/recipe.service';
 import { ChatService } from './services/chatService.service';
+import { StatsPageComponent } from './components/statistics/stats-page/stats-page.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +45,10 @@ import { ChatService } from './services/chatService.service';
     RecipeResultsComponent,
     RestaurantResultsComponent,
     LabelComponent,
+    PieChartComponent,
     RatingComponent,
-    BarChartComponent
+    BarChartComponent,
+    StatsPageComponent
   ],
   imports: [
     BrowserModule,

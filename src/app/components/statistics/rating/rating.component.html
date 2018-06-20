@@ -1,3 +1,6 @@
 <h1>{{title}}</h1>
 <h2>{{subtitle}}</h2>
-<svg width="960" height="500" id="a123"></svg>
+<div *ngIf="data2.length>0">
+
+<angular-d3-pie [id]="pieChartId" [data]="data2"></angular-d3-pie>
+</div>
