@@ -23,6 +23,7 @@
               "src/css",
               "src/js",
               "src/images",
+              "src/video",
               "src/assets"
             ],
             "styles": [
