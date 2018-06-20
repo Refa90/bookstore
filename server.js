@@ -64,4 +64,20 @@ io.on('connection', (socket) => {
     });
 });
 
+app.get('/webhook/', function(req, res) {
+  if (req.query['hub.verify_token'] === process.env.VERIFY_TOKEN){
+    return res.send(req.query['hub.challenge'])
+  }
+  res.send('wrong token')
+})
+
+app.listen(app.get('port'), function(){
+  console.log('Started on port', app.get('port'))
+})
+
+const bot = new BootBot({
+  accessToken: "EAAFYH8mUqm4BALq75r92YznkBZAAMMvrujoM4K6qQbZBwW7HIB2QE67jJw1GiZCIzOxPmq2mOoZBpPrPVFWjcyCeQZByIxNaavyGbL7zZBpI932ILtD7O9GCee5DAfA63FnlJZBKjMeDS8nK6ZAxy1lsEu4cjCThkUdKnmfPhV2WkwZDZD",
+  verifyToken: "webhook",
+  appSecret: "40afd34922fe922dd61a1827df67a122"
+})
 //  recipeApi.getRecipe('chicken')
