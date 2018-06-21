@@ -94,16 +94,21 @@ restaurantRoutes.get('/:id', function(req, res, next) {
 restaurantRoutes.route('/add').post(function (req, res) {
   var restaurant = new Restaurant(req.body);
 
-  validate(restaurant, res);
+  erros = validate(restaurant, res);
 
-  console.log(restaurant);
-  restaurant.save()
-    .then(item => {
-    res.status(200).json({'restaurant': 'Restaurant added successfully'});
-    })
-    .catch(err => {
-    res.status(400).send("unable to save to database");
-    });
+  if(errors.length > 0){
+    res.status(400);
+    res.send(erros);
+  } else{
+    console.log(restaurant);
+    restaurant.save()
+      .then(item => {
+      res.status(200).json({'restaurant': 'Restaurant added successfully'});
+      })
+      .catch(err => {
+      res.status(400).send("unable to save to database");
+      });
+  }
 });
 
 /* UPDATE RESTAURANT */
@@ -128,14 +133,19 @@ restaurantRoutes.route('/update/:id').post(function (req, res) {
       restaurant.picture = req.body.picture;
       restaurant.url = req.body.url;
 
-      validate(restaurant, res);
+      erros = validate(restaurant, res);
 
-      restaurant.save().then(restaurant => {
+      if(errors.length > 0){
+        res.status(400);
+        res.send(erros);
+      } else{
+        restaurant.save().then(restaurant => {
           res.json('Update complete');
-      })
-      .catch(err => {
-            res.status(400).send("unable to update the database");
-      });
+        })
+        .catch(err => {
+              res.status(400).send("unable to update the database");
+        });
+      }
     }
   });
 });
@@ -147,13 +157,6 @@ restaurantRoutes.route('/delete/:id').get(function (req, res) {
         else res.json('Successfully removed');
     });
 });
-
-
-
-// /* GET home page. */
-// bookRoutes.get('/', function(req, res, next) {
-//   res.send('Express RESTful API');
-// });
 
 function validate(restaurant, res){
   errors = [];
@@ -182,10 +185,7 @@ function validate(restaurant, res){
     errors.push("url is missing");
   }
     
-  if(errors.length > 0){
-    res.status(400);
-    res.send(errors);
-  }
+  return errors;
 }
 
 module.exports = restaurantRoutes;
