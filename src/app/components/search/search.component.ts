@@ -55,13 +55,18 @@ export class SearchComponent implements OnInit {
 }
 searchReastaurnatByImage(searchModel){
   console.log("predict image from: "+searchModel.name )
+
   this.service.searchRestaurantsByImage(searchModel.name).subscribe(res => {
     var result=res.toString().slice(1, -2);
     console.log("the result is: "+ result);
     if(result=="NonFood"){
         alert("Picture is not a food");
     }
+    if(result=="invalid"){
+      alert("Invalid input inserted");
+    }
     else{
+      alert("Image predicted as: "+result);
       var searchModel={name:null,location:null,label:result};
       console.log(searchModel);
       this.searchReastaurnat(searchModel);

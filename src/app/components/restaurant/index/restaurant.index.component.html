@@ -1,4 +1,7 @@
 
+<aside>
+    <a [routerLink]="['/restaurants/create']" class="btn btn-primary">Create</a>
+</aside>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -23,7 +26,8 @@
       <td>{{ rest.picture }}</td>
       <td>{{ rest.url }}</td>
       <td><a [routerLink]="['/restaurants/edit', rest._id]" class="btn btn-primary">Edit</a></td>
-      <td><button (click)="deleteRestaurant(rest._id)" class="btn btn-danger">Delete</button></td>
+      <td><a [routerLink]="['/restaurants/index']" (click)="deleteRestaurant(rest._id)" class="btn btn-primary">Delete</a></td>
+      <!-- <td><button (click)="deleteRestaurant(rest._id)" class="btn btn-primary">Delete</button></td> -->
     </tr>
   </tbody>
 </table>

@@ -41,10 +41,10 @@ export class RestaurantCreateComponent implements OnInit {
     this.angForm = this.fb.group({
       name: ['', Validators.required],
       location: ['', Validators.required],
-      description: [''/*, Validators.required*/],
+      description: [''],
       labels: ['', Validators.required],
-      rating: [5, [Validators.required, this.myValidator]],
-      picture: [''/*, Validators.required*/],
+      rating: [5, Validators.required],
+      picture: [''],
       url: ['', Validators.required]
     });
   }

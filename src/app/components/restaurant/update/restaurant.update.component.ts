@@ -14,19 +14,32 @@ export class RestaurantUpdateComponent implements OnInit {
   angForm: FormGroup;
   formtitle = 'Edit Restaurant';
   constructor(private route: ActivatedRoute, private router: Router, private service: RestaurantService, private fb: FormBuilder) {
-    this.createForm();
+    this.createForm(null);
    }
 
-  createForm() {
-    this.angForm = this.fb.group({
-      name: ['', Validators.required],
-      location: ['', Validators.required],
-      description: ['', Validators.required],
-      labels: ['', Validators.required],
-      rating: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(1)]],
-      picture: ['', Validators.required],
-      url: ['', Validators.required]
-   });
+  createForm(model) {
+    if(model == null){
+      this.angForm = this.fb.group({
+        name: ['', Validators.required],
+        location: ['', Validators.required],
+        description: [''],
+        labels: ['', Validators.required],
+        rating: ['', Validators.required],
+        picture: [''],
+        url: ['', Validators.required]
+     });
+    }else{
+      this.angForm = this.fb.group({
+        name: ['', Validators.required],
+        location: ['', Validators.required],
+        description: [''],
+        labels: [this.restaurant.labels, Validators.required],
+        rating: [this.restaurant.rating, Validators.required],
+        picture: [''],
+        url: ['', Validators.required]
+     });
+    }
+    
   }
 
   updateRestaurant(name, location, description, labels, rating, picture, url) {
@@ -41,6 +54,7 @@ export class RestaurantUpdateComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.restaurant = this.service.editRestaurant(params['id']).subscribe(res => {
         this.restaurant = res;
+        this.createForm(res);
       });
     });
   }
