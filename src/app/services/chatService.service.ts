@@ -19,7 +19,7 @@ export class ChatService {
   }
 
   postMessage(userName, message){
-    let uri = 'https://graph.facebook.com/202393100576186/feed?message=' + userName + ": " + message + '&access_token=EAAFYH8mUqm4BABurut1IFM37uH7E5QUWU22aevsZCP14rDHZCTybxcWziSEW0mxsPCHlgt7hHIBYVUBBCNUCAZCzhWixFQJWsUuZBJcJSoLrHaRBTelcWzGfGfaKpwMdQS3DAfGP7t7IiLuZBIEPx3gLLCFKjvPuO90oiSArDWqPw89MDEZAZCrL2vd95NxtN8ZD';
+    let uri = 'https://graph.facebook.com/202393100576186/feed?message=' + userName + ": " + message + '&access_token=EAACEdEose0cBALo7jZCt6o9jcmdjAAuk9jZBKi5glQPSjS7o1Ut06LaFpbzhpZBLTYHiHcMxjCqVls4NJ3IX0NRzUhSS3ys7PtoTEkdW94oLsgzAC0SMVia8VHmEvCW0gO5tmm8950EInJqvala7UoXCP5aqqZBg4wkKbkeeF8mjQuLp2H9ZCZCdVUicEZA9TbHInSr5nWBnAZDZD';
         return this
                 .http
                 .post(uri, null)
