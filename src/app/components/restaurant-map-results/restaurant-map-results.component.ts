@@ -35,7 +35,9 @@ constructor(private sharedData: SharedDataService) { }
 ngOnInit() {
   this.sharedData.currentRestaurantResults.subscribe((res : any) =>  {
     var  first = true;
+    this.markers = []
     res.forEach(element => {
+      
       if(element.lat && element.lon) {
         if (first) {
           this.lat = element.lat
