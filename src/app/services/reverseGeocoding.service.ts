@@ -27,7 +27,7 @@ export class ReverseGeocodingService {
     let uri = this.url + address;
         return this
                 .http
-                .post(uri, null)
+                .get(uri, null)
                 .map((res : string) => {
                   return res;
                 });
