@@ -6,11 +6,13 @@
   <a href="#" class="prev" id="prev1"></a><a href="#" class="next" id="next1"></a>
   <ul class="carousel1">
       <li *ngFor="let retaurant of this.restaurants">
-          <div><img src="{{retaurant.picture}}" alt="">
-            <div class="col1 upp"> <a href="{{retaurant.url}}">{{retaurant.name}}</a></div>
-            <span>{{retaurant.location}} </span>
-            <div class="price">"{{retaurant.rating}}"</div>
-          </div>
+          <a href="{{retaurant.url}}" target="_blank">
+            <div><img src="{{retaurant.picture}}" alt="">
+              <div class="col1 upp"> {{retaurant.name}}</div>
+              <span>{{retaurant.location}} </span>
+              <div class="price">"{{retaurant.rating}}"</div>
+            </div>
+          </a>
         </li>
   </ul>
 </div>

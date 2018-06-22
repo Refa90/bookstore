@@ -6,10 +6,12 @@
     <a href="#" class="prev" id="prev2"></a><a href="#" class="next" id="next2"></a>
     <ul class="carousel3">
       <li *ngFor="let recipy of this.recipies">
+        <a href="{{recipy.source_url}}" target="blank">
           <div><img src="{{recipy.image_url}}" alt="">
-            <div class="col1 upp"> <a href="{{recipy.source_url}}" target="blank">{{recipy.title}}</a></div>
+            <div class="col1 upp">{{recipy.title}}</div>
             <span>{{recipy.publisher}} </span>
           </div>
+        </a>
         </li>
   </ul>
 </div>

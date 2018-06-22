@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { BookIndexComponent } from './components/book/index/book.index.component';
@@ -28,7 +29,9 @@ import { BarChartComponent } from 'angular-d3-charts'; // this is needed!
 import { PieChartComponent } from 'angular-d3-charts'; // this is needed!
 import { RecipeService } from './services/recipe.service';
 import { ChatService } from './services/chatService.service';
+import { ReverseGeocodingService } from './services/reverseGeocoding.service';
 import { StatsPageComponent } from './components/statistics/stats-page/stats-page.component';
+import { RestaurantMapResultsComponent } from './components/restaurant-map-results/restaurant-map-results.component';
 
 @NgModule({
   declarations: [
@@ -48,16 +51,22 @@ import { StatsPageComponent } from './components/statistics/stats-page/stats-pag
     PieChartComponent,
     RatingComponent,
     BarChartComponent,
-    StatsPageComponent
+    StatsPageComponent,
+    RestaurantMapResultsComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      // please get your own API key here:
+      // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
+      apiKey: 'AIzaSyArrljopB_CNWD0-PinQTFvnJrWKsl7J9o'
+    })
   ],
-  providers: [BookService, RestaurantService, SharedDataService, RecipeService, StatsService, ChatService],
+  providers: [BookService, RestaurantService, SharedDataService, RecipeService, StatsService, ChatService,ReverseGeocodingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

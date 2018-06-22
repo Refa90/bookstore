@@ -127,6 +127,8 @@ restaurantRoutes.route('/update/:id').post(function (req, res) {
       restaurant.rating = req.body.rating;
       restaurant.picture = req.body.picture;
       restaurant.url = req.body.url;
+      restaurant.lon = req.body.lon;
+      restaurant.lat = req.body.lat;
 
       validate(restaurant, res);
 

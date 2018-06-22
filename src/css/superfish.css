@@ -24,7 +24,7 @@ nav{ position:relative;padding: 0px 0 0 0;}
 }
 @font-face{
     font-family: "Artifika";
-    src:url(/src/fonts/Artifika-Regular.ttf);
+    src:url(../fonts/Artifika-Regular.ttf);
     font-style: normal;
     font-weight: 100;
 }

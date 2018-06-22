@@ -3,12 +3,15 @@ import { FormGroup,  FormBuilder,  Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+import { ReverseGeocodingService } from './reverseGeocoding.service';
 
 @Injectable()
 export class RestaurantService {
-
+  private geocodeUrl = 'https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyArrljopB_CNWD0-PinQTFvnJrWKsl7J9o&address=';  
+  
   result: any;
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private service : ReverseGeocodingService ) {}
 
   addRestaurant(name, location, description, labels, rating, picture, url) {
     const uri = 'http://localhost:4000/restaurants/add';
@@ -19,7 +22,9 @@ export class RestaurantService {
       labels: labels,
       rating: rating,
       picture: picture,
-      url: url
+      url: url,
+      lat: null,
+      lon: null
     };
 
     // this
@@ -28,12 +33,28 @@ export class RestaurantService {
     //   .subscribe(res =>
     //       console.log('Done'));
 
-      return this
-          .http
-          .post(uri, obj)
-          .map(res => {
-            return res;
-          });
+    return this.http.get(this.geocodeUrl + location)
+    .map((res: any) =>  { 
+      return res })
+    .flatMap((geores: any) => {
+      if (geores && geores.status == "OK") {
+        obj.lat = geores.results["0"].geometry.location.lat
+        obj.lon = geores.results["0"].geometry.location.lng
+      }
+      return this.http.post(uri, obj)
+        .map((res: any) => {
+          return res;
+        });
+    });
+
+      // var geocode = this.service.getGeocode(location).map(res: any => res);
+      // debugger;
+      // return this
+      //     .http
+      //     .post(uri, obj)
+      //     .map(res => {
+      //       return res;
+      //     });
   }
 
   searchRestaurants(name,location,label) : any{

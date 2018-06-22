@@ -1,9 +1,9 @@
-@font-face{
+/* @font-face{
     font-family: "Artifika";
-    src:url(/src/fonts/Artifika-Regular.ttf);
+    src:url(../src/fonts/Artifika-Regular.ttf);
     font-style: normal;
     font-weight: 100;
-}
+} */
 footer {
     position: fixed;
     left: 0;
