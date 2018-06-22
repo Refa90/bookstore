@@ -23,14 +23,14 @@ export class ReverseGeocodingService {
 
   }
   
-  getGeocode(address){
-    let uri = this.url + address;
-        return this
-                .http
-                .post(uri, null)
-                .map((res : string) => {
-                  return res;
-                });
-  }
+  // getGeocode(address){
+  //   let uri = this.url + address;
+  //       return this
+  //               .http
+  //               .get(uri, null)
+  //               .map((res : string) => {
+  //                 return res;
+  //               });
+  // }
   
 }

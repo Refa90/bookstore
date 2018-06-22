@@ -1,9 +1,10 @@
-<div class="car_wrap">
+<div class="car_wrap" *ngIf="this.recipies.length > 0">
+  <script>initUI();</script>
   <h2>Recipies:</h2>
   <ul>
 
     </ul>
-    <a href="#" class="prev" id="prev2"></a><a href="#" class="next" id="next2"></a>
+    <!-- <a href="#" class="prev" id="prev2"></a><a href="#" class="next" id="next2"></a> -->
     <ul class="carousel3">
       <li *ngFor="let recipy of this.recipies">
         <a href="{{recipy.source_url}}" target="blank">
