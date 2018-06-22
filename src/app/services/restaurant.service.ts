@@ -37,6 +37,7 @@ export class RestaurantService {
     .map((res: any) =>  { 
       return res })
     .flatMap((geores: any) => {
+      debugger;
       if (geores && geores.status == "OK") {
         obj.lat = geores.results["0"].geometry.location.lat
         obj.lon = geores.results["0"].geometry.location.lng
@@ -138,20 +139,35 @@ export class RestaurantService {
         labels: labels,
         rating: rating,
         picture: picture,
-        url: url
+        url: url,
+        lat: null,
+        lon: null
     };
 
     // this
     //   .http
     //   .post(uri, obj)
     //   .subscribe(res => console.log('Done'));
-
-    return this
-            .http
-            .post(uri, obj)
-            .map(res => {
-              return res;
-            });
+    return this.http.get(this.geocodeUrl + location)
+    .map((res: any) =>  { 
+      return res })
+    .flatMap((geores: any) => {
+      debugger;
+      if (geores && geores.status == "OK") {
+        obj.lat = geores.results["0"].geometry.location.lat
+        obj.lon = geores.results["0"].geometry.location.lng
+      }
+      return this.http.post(uri, obj)
+        .map((res: any) => {
+          return res;
+        });
+    });
+    // return this
+    //         .http
+    //         .post(uri, obj)
+    //         .map(res => {
+    //           return res;
+    //         });
   }
 
   deleteRestaurant(id) {
